@@ -32,8 +32,6 @@
 ```
 Sprint-4-Edge/
 ├─ README.md                              # este documento
-├─ docs/
-│  ├─ prints-wokwi/
 ├─ firmware/
 │  └─ main.cpp                            # código final do ESP32 (Wokwi) - MQTT/Ultralight    
 └─                   
