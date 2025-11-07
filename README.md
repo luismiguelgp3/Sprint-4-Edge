@@ -271,8 +271,25 @@ void reconnectMQTT() {
 
 ---
 
+# 📸 Graficos com dados
 
+---
 
+<img width="587" height="398" alt="Grafico Escanteio" src="https://github.com/user-attachments/assets/089936b3-d307-4b09-bc48-80f249e34bb4" />
+
+---
+
+<img width="583" height="392" alt="Grafico Impedimento" src="https://github.com/user-attachments/assets/8633a211-f5fc-4dcd-9b18-5184befd60ee" />
+
+---
+
+<img width="589" height="399" alt="Grafico Lateral" src="https://github.com/user-attachments/assets/6338ad1f-c921-445e-a24e-a50640cd4aab" />
+
+---
+
+<img width="584" height="394" alt="image" src="https://github.com/user-attachments/assets/1092b0cb-2ba5-4d0c-bed4-5817d354fd32" />
+
+---
 
 ## 🧪 Validação com Postman (Orion)
 
