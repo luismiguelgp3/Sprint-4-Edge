@@ -267,6 +267,11 @@ void reconnectMQTT() {
 
 ---
 
+<img width="1919" height="1079" alt="print2" src="https://github.com/user-attachments/assets/5a74ee90-22c4-4d4d-8ef8-a843e954657c" />
+
+---
+
+
 ## 🧪 Validação com Postman (Orion)
 
 > **Pré-condição:** O **IoT Agent** já registrou o **device** e mapeamentos (service, servicepath, deviceId, atributos `esc,imp,lat,tim`).
