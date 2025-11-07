@@ -43,16 +43,15 @@ Sprint-4-Edge/
 
 ## 🧩 Mapeamento (Atributos → Orion via IoT Agent)
 
-| Botões       | Variável (código) | Tópico MQTT                      | Atributo no Orion |   |
-| ------------ | ----------------- | -------------------------------- | ----------------- | - |
-| Escanteio    | `escanteio`       | `/TEF/bandeira003/attrs/esc`         | `escanteio`     |   |
-| Lateral      | `lateral`         | `/TEF/bandeira003/attrs/lat`         | `lateral`        |   |
-| Impedimento  | `impedimento`     | `/TEF/bandeira003/attrs/imp`         | `impedimento`      |   |
-| Tiro de Meta | `tirodemeta`      | `/TEF/bandeira003/attrs/tim`         | `tirodemeta`        |   |
-| Estado LED   | (saída D4)        | `/TEF/bandeira003/attrs` (payload `s | on/off`)          | `s` (status) | — |
+| Botões       | Variável (código) | Tópico MQTT                      | Atributo no Orion | 
+| ------------ | ----------------- | -------------------------------- | ----------------- | 
+| Escanteio    | `escanteio`       | `/TEF/bandeira003/attrs/esc`     | `escanteio`       | 
+| Lateral      | `lateral`         | `/TEF/bandeira003/attrs/lat`     | `lateral`         | 
+| Impedimento  | `impedimento`     | `/TEF/bandeira003/attrs/imp`     | `impedimento`     | 
+| Tiro de Meta | `tirodemeta`      | `/TEF/bandeira003/attrs/tim`     | `tirodemeta`      | 
 
-> **Comandos** recebidos no tópico `/TEF/bandeira003/cmd` com payload contendo `@on|` ou `@off|` (o firmware já interpreta e alterna o pino `default_D4`).
-> O **IoT Agent** deve estar configurado para mapear `esc,imp,lat,tim,s` → atributos da entidade `bandeira003` (ou `BANDEIRA001`, conforme cadastro).
+> **Comandos** 
+> O **IoT Agent** deve estar configurado para mapear `esc,imp,lat,tim` → atributos da entidade `bandeira003` (ou `BANDEIRA001`, conforme cadastro).
 
 ---
 
@@ -215,9 +214,6 @@ void reconnectMQTT() {
 > **Destaques do firmware:**
 >
 > * Publica `esc,imp,lat,tim` em `/TEF/bandeira003/attrs/*`.
-> * Publica estado `s|on/off` em `/TEF/bandeira003/attrs`.
-> * Recebe comandos em `/TEF/bandeira003/cmd` com `@on|` / `@off|`.
-> * Leitura DHT22 (T/UR), LDR (0–100%), HC-SR04 (cm).
 
 ---
 
@@ -238,7 +234,8 @@ void reconnectMQTT() {
 ---
 
 ## Hardware de Simulação Montado (Wokwi)
-<img width="490" height="316" alt="printwokwi" src="https://github.com/user-attachments/assets/5d051175-d753-4c6c-9864-23c8a65d842b" />
+
+<img width="445" height="478" alt="image" src="https://github.com/user-attachments/assets/06ffb5bd-5dd6-498a-82e3-71b9d07e73d0" />
 
 ---
 
@@ -272,7 +269,7 @@ void reconnectMQTT() {
 
 ## 🧪 Validação com Postman (Orion)
 
-> **Pré-condição:** O **IoT Agent** já registrou o **device** e mapeamentos (service, servicepath, deviceId, atributos `esc,imp,lat,tim,s`).
+> **Pré-condição:** O **IoT Agent** já registrou o **device** e mapeamentos (service, servicepath, deviceId, atributos `esc,imp,lat,tim`).
 > Assim que o ESP32 publicar em MQTT, o IoT Agent **atualiza** a entidade no Orion.
 
 **1) Consultar entidade (NGSI v2)**
@@ -287,11 +284,10 @@ GET http://<orion-host>:1026/v2/entities/<ENTITY_ID>
 {
   "id": "bandeira003",
   "type": "WineCellar",
-  "escanteio": { "value": 0, "type": "Number" },
-  "lateral":    { "value": 0, "type": "Number" },
+  "escanteio":    { "value": 0, "type": "Number" },
+  "lateral":      { "value": 0, "type": "Number" },
   "impedimento":  { "value": 0, "type": "Number" },
-  "tirodemeta":    { "value": 0, "type": "Number" },
-  "s":           { "value": "on", "type": "Text" }
+  "tirodemeta":   { "value": 0, "type": "Number" },
 }
 ```
 
@@ -306,18 +302,13 @@ Content-Type: application/json
 { "on": "" }
 ```
 
-> **Alternativa para teste rápido (direto no MQTT):** publicar em `/TEF/bandeira003/cmd` a string `@on|` ou `@off|` (o firmware já entende).
-
----
-
 ## 🔁 Replicabilidade (passo a passo)
 
 1. **Confirmar ambiente**: Broker MQTT, IoT Agent Ultralight (MQTT) e Orion ativos.
-2. **Cadastrar device** no IoT Agent (mapeando `esc,imp,lat,tim,s` → Orion).
+2. **Cadastrar device** no IoT Agent (mapeando `esc,imp,lat,tim` → Orion).
 3. **Abrir Wokwi**, carregar `firmware/main.cpp`, conferir **IP do broker** e **TOPICS**.
 4. **Run** no Wokwi e observar **Serial** (conexão Wi-Fi, MQTT e publicações).
 5. No **Postman**, usar `GET /v2/entities/<ENTITY_ID>` no Orion e validar atributos.
-6. (Opcional) Enviar **comando** via IoT Agent (ou publish MQTT) e observar o LED/PINO `default_D4`.
 
 ---
 
