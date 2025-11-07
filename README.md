@@ -255,11 +255,15 @@ void reconnectMQTT() {
 
 ---
 
-<img width="1918" height="1079" alt="imagem_codigo3" src="https://github.com/user-attachments/assets/031cf4e3-8854-4165-86b3-5bf293be0234" />
+<img width="1919" height="1079" alt="imagem_codigo3" src="https://github.com/user-attachments/assets/e7c6649b-019f-4513-abce-28cca576e355" />
 
 ---
 
-<img width="1919" height="1079" alt="imagem_codigo44" src="https://github.com/user-attachments/assets/f1027a36-f7b1-480a-995e-582237ed3d4d" />
+<img width="1919" height="1001" alt="imagem_codigo4" src="https://github.com/user-attachments/assets/24acd113-c472-465f-ae90-dc6e62ae7638" />
+
+---
+
+<img width="1919" height="1079" alt="print2" src="https://github.com/user-attachments/assets/5a74ee90-22c4-4d4d-8ef8-a843e954657c" />
 
 ---
 
@@ -267,9 +271,7 @@ void reconnectMQTT() {
 
 ---
 
-<img width="1919" height="1079" alt="print2" src="https://github.com/user-attachments/assets/5a74ee90-22c4-4d4d-8ef8-a843e954657c" />
 
----
 
 
 ## 🧪 Validação com Postman (Orion)
