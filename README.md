@@ -307,7 +307,7 @@ GET http://<orion-host>:1026/v2/entities/<ENTITY_ID>
 ```json
 {
   "id": "bandeira003",
-  "type": "WineCellar",
+  "type": "Futebol",
   "escanteio":    { "value": 0, "type": "Number" },
   "lateral":      { "value": 0, "type": "Number" },
   "impedimento":  { "value": 0, "type": "Number" },
